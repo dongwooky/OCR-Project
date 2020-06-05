@@ -1,5 +1,5 @@
 # OCR_Project
-**_OCR_project in Python with OpenCV_**
+OCR_project in Python with OpenCV
 
 ## Outline
 This is personal term project for studying Computer Vision by dongwooky
