@@ -1,6 +1,6 @@
+  
 """
 tesseract-ocr 설치
-
 1) https://github.com/UB-Mannheim/tesseract/wiki 에서 exe 파일 다운로드
 2) 설치 시 "Additional script data" 항목에서 "Hangul Script", "Hangul vertical script" 항목 체크,
    "Additional language data" 항목에서 "Korean" 항목 체크.
@@ -59,4 +59,3 @@ cv2.waitKey(0)
 
 capture.release()
 cv2.destroyAllWindows()
-
