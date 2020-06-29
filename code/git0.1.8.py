@@ -3,7 +3,7 @@ import numpy as np
 from PIL import Image
 import pytesseract
 import re
-#import pandas as pd
+import pandas as pd
 from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox
@@ -14,9 +14,8 @@ import os
 svl=[]
 size=[]
 ls=None
-ocr_result=''
 
-"""
+
 def capturing(): ##데모버전에서만 사용
     pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
     img_ori = cv2.imread("C:\\Users\\82106\\Documents\\Git_project\\OCR_project\\code\\2.jpg")
@@ -26,10 +25,8 @@ def capturing(): ##데모버전에서만 사용
     text=pytesseract.image_to_string(image_blurred, lang='kor')
     
     return text
-"""
 
 def ocr():
-    global ocr_result
     width=640
     height=480
 
@@ -59,28 +56,25 @@ def ocr():
             cv2.imshow("VideoFrame",frame)
             if cv2.waitKey(33)==ord('q'):
                 break
-            """
             elif cv2.contourArea(pts)>width*height*0.9:
                 break
-            """
         else:
             break
 
     src=frame
     image_gray=cv2.cvtColor(src,cv2.COLOR_BGR2GRAY)
     image_blur=cv2.GaussianBlur(image_gray,(5,5),0)
-    ocr_result=pytesseract.image_to_string(image_blur, lang='Hangul+eng')
+    text=pytesseract.image_to_string(image_blur, lang='Hangul+eng')
     cv2.waitKey(0)
 
     capture.release()
     cv2.destroyAllWindows()
 
-    return ocr_result
+    return text
 
 def noize_removal(source):
-    src=source
     p=re.compile("([가-힣]+)")
-    size_table=p.findall(src)
+    size_table=p.findall(source)
     global size
     for i in range(len(size_table)):
         if ((len(size_table[i])>2)):
@@ -105,15 +99,12 @@ def saving(size):
     svl.extend(size)
 
 
-def main():
+def gui(source):
     maingui=Tk()
     maingui.title("OCR 프로그램")
     maingui.geometry("500x300")
 
-    global ocr_result
-    ocr_string=ocr_result
-
-    src=noize_removal(ocr_string)
+    src=source
     
     but1=Button(maingui, text="Capture",command=ocr)
     but1.pack()
@@ -121,9 +112,8 @@ def main():
     but2.pack()
     but3=Button(maingui, text="최종저장목록",command=finallist)
     but3.pack()
-
+    
     maingui.mainloop()
-    print('hi')
 
     
 def listing(source):
@@ -180,6 +170,7 @@ def finallist():
 
 
 if __name__ == '__main__':
-    ##text=ocr()
-    #new_text=noize_removal(ocr_result)
-    main()
+    text=ocr()
+    #text=capturing()
+    new_text=noize_removal(text)
+    gui(new_text)
