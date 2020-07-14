@@ -101,11 +101,10 @@ def deleting():
 
 def saving(size):
     global svl
-    src=size
     svl.extend(size)
 
 
-def main():
+def main(bamb):
     maingui=Tk()
     maingui.title("OCR 프로그램")
     maingui.geometry("500x300")
@@ -113,7 +112,7 @@ def main():
     global ocr_result
     ocr_string=ocr_result
 
-    src=noize_removal(ocr_string)
+    src=bamb
     
     but1=Button(maingui, text="Capture",command=ocr)
     but1.pack()
@@ -181,5 +180,5 @@ def finallist():
 
 if __name__ == '__main__':
     text=capturing()
-    new_text=noize_removal(ocr_result)
+    new_text=noize_removal(text)
     main(new_text)
