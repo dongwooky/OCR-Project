@@ -1,5 +1,7 @@
 # OCR_Project
-OCR_project in Python with OpenCV
+Project name:
+
+OCR Project : To implement smart kitchen
 
 ## Outline
 This is personal term project by dongwooky for studying Computer Vision 
