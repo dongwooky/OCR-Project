@@ -37,4 +37,10 @@ This is personal term project by dongwooky for studying Computer Vision
 ## Adds
 If you want to read final code, you can find it in the folder name &#60;code&#62;
 
-Current final code : ocr_project_1.0.0.py
+- Current final code : ocr_project_1.0.0.py
+
+If you want to read document (project_proposal, final_presentation, final_report) you can find it in the folder name &#60;document&#62;
+
+- Project Proposal : project_proposal.pptx
+- Final Presentation : fianal_presentation.pptx
+- Final Report : final_report.docx
