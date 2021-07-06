@@ -11,6 +11,7 @@ import tkinter as tk
 from tkinter import messagebox
 import os
 
+
 svl=[]
 size=[]
 olv=[] #ocr_list_value
